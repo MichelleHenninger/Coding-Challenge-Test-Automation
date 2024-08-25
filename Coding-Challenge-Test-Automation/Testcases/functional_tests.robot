@@ -1,21 +1,16 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../Resources/Keywords.resource
+Suite Setup       Run Tests In All Browsers
+Suite Teardown    Close All Browsers
+Test Setup        Open Browser For Test
+Test Teardown     Close Browser
 
 
 *** Variables ***
 @{PRODUCT_CARDS}     Get WebElements    ${PRODUCT_CARD}
 
 *** Test Cases ***
-Setup
-    [Documentation]    Open browser and navigate to the product page.
-    Open Browser    ${URL}    Chrome
-    Maximize Browser Window
-
-Teardown
-    [Documentation]    Close browser after tests.
-    Close Browser
-
 TC_01 Click on article thumbnail
     [Documentation]    Overlay opens with article details
     FOR    ${product}    IN    @{PRODUCT_CARDS}

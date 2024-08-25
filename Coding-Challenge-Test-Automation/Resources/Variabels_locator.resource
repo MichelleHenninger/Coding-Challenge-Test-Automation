@@ -8,8 +8,9 @@ ${ARTICLE_PRICE}         css=.product-page__price
 ${COLOR_BOX}             css=.product-page__color-box
 ${OVERLAY}               css=.product-view  
 ${CLOSE_BUTTON}          //*[@id="app"]/div[3]/section/div/div[1]/button  
-${SLIDESHOW}             css=.product-gallery__indicators  
-${TAB_NAVIGATION}        css=.tab-navigation-selector  
-${FOOTER}                css=.sticky-footer-selector 
+${SLIDESHOW}             css=.product-gallery__indicators   
+${FOOTER}                css=.product-sticky-footer
 ${MAIN_IMAGE}            css=.lazy-image__img--transition
-${COLOR_TEXT}            css=.product-detail__color-value            
+${COLOR_TEXT}            css=.product-detail__color-value     
+${BROWSER}               None
+${BROWSERS}              Chrome    Firefox    Edge
