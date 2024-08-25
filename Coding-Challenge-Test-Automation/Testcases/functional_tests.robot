@@ -100,3 +100,23 @@ TC_Check_Selected_Color_Matches_Image_Title
         [Teardown]    Close Overlay
     END
     Close Browser
+
+TC_08_Verify_All_Color_Selections
+    [Documentation]  Überprüft, ob alle Farboptionen korrekt ausgewählt werden können.
+
+    FOR    ${color}    IN    @{COLORS}
+        # Wähle die aktuelle Farbe aus
+        ${color_element}=  Get WebElement  xpath=//input[@alt='${color}']
+        Click Element    ${color_element}
+
+        # Überprüfe, ob das geklickte Element jetzt die Klasse 'cursor-default' und 'border-black' hat
+        ${class_attribute}=    Get Element Attribute    ${color_element}    class
+        Should Contain    ${class_attribute}    cursor-default
+        Should Contain    ${class_attribute}    border-black
+
+        # Überprüfe, ob alle anderen Farben NICHT ausgewählt sind
+        FOR    ${other_color}    IN    @{COLORS}
+            Run Keyword Unless    '${other_color}' == '${color}'    
+            ...    Verify Color Not Selected    ${other_color}
+        END
+    END

@@ -14,3 +14,4 @@ ${MAIN_IMAGE}            css=.lazy-image__img--transition
 ${COLOR_TEXT}            css=.product-detail__color-value     
 ${BROWSER}               None
 ${BROWSERS}              Chrome    Firefox    Edge
+${COLORS}       WHITE-2.webp    BORDEAUX-2.webp    NAVY-2.webp    BLACK-2.webp

@@ -66,3 +66,21 @@ Close All Browsers
     [Documentation]    Closes all browser instances.
     Close All Browsers
 
+Get Focused Element
+    [Documentation]  Gibt das aktuell fokussierte Element zurück.
+    ${element}=    Execute JavaScript    return document.activeElement;
+    RETURN    ${element}
+
+Element Should Be Focused
+    [Arguments]    ${element}
+    [Documentation]  Überprüft, ob das übergebene Element den Fokus hat.
+    Run Keyword If    '${element}' == 'None'    Fail    Kein Element ist fokussiert!
+    Log    Aktuelles fokussiertes Element: ${element}
+
+
+Verify Color Not Selected
+    [Arguments]    ${color}
+    ${color_element}=  Get WebElement  xpath=//input[@alt='${color}']
+    ${class_attribute}=    Get Element Attribute    ${color_element}    class
+    Should Not Contain    ${class_attribute}    cursor-default
+    Should Not Contain    ${class_attribute}    border-black

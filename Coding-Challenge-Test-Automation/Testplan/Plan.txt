@@ -45,7 +45,6 @@ Testplan:
     TC_05	Verify available colors	                All available colors are displayed
     TC_06	Verify available sizes	                All available sizes are displayed
     TC_07	Validate the display of retail prices	Prices are displayed correctly
-    TC_08	Test tab navigation	Tabs navigate       correctly and display relevant information
     TC_09	Select a different color	            Slideshow images and size availability update accordingly
     TC_10	Verify sticky footer behavior	        Footer remains sticky at the bottom of the overlay
     TC_11	Check if overlay content changes 
@@ -57,9 +56,9 @@ Testplan:
     TC_14	Verify overlay on mobile	            Overlay content is correctly displayed
     TC_15	Test responsiveness on screen
             rotation (tablet/mobile)	            Content adjusts appropriately on rotation
+    TC_19   Verify TabNavigation                    Page can be used with keyboard
 
-
-    Browser:
+    Browser: --> solved with Suite Set up and tear down
     TC_16	Test overlay in Chrome	                Overlay displays and functions correctly
     TC_17	Test overlay in Firefox	                Overlay displays and functions correctly
     TC_18	Test overlay in Edge	                Overlay displays and functions correctly
