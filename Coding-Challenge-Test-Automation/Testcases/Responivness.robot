@@ -9,7 +9,8 @@ Test Teardown     Close Browser
 
 *** Test Cases ***
 TC_12_Verify_Overlay_On_Desktop
-    [Documentation]    Verify that the overlay content is correctly displayed on a desktop screen.
+    [Documentation]    Verify that the overlay content is correctly displayed on a desktop screen
+    ...    with maximal resolution
     Maximize Browser Window
     Open Product Overlay   
     Verify Overlay Content
@@ -17,6 +18,7 @@ TC_12_Verify_Overlay_On_Desktop
 
 TC_13_Verify_Overlay_On_Tablet
     [Documentation]    Verify that the overlay content is correctly displayed on a tablet screen.
+    ...        with a standard tablet resolution
     Set Window Size    768    1024  # Standard tablet resolution
     Open Product Overlay
     Verify Overlay Content
@@ -58,14 +60,14 @@ TC_15_Test_Responsiveness_On_Screen_Rotation
 
 
 TC_19_Verify_Tab_Navigation
-    [Documentation]  Check if page can be used with tab
+    [Documentation]  Check if page can be used with tab by clicking tab and checking if the focused elemt changed
     
     # First element focus
     Press Keys    NONE    TAB
     ${focused}=   Get Focused Element
     Element Should Be Focused    ${focused}
 
-    # Press Tab to switch to next element and checjk new focused Element
+    # Press Tab to switch to next element and check new focused Element
     Press Keys    NONE    TAB
     ${focused}=   Get Focused Element
     Element Should Be Focused    ${focused}

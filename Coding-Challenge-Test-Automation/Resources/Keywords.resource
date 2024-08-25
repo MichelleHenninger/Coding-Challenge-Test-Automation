@@ -5,26 +5,31 @@ Resource    Variabels_locator.resource
 
 *** Keywords ***
 Open Overlay For Product
+    [Documentation]    Opens Overlay for ${product}
     [Arguments]    ${product}
     Click Element    ${product}${THUMBNAIL}
     Wait Until Element Is Visible    ${OVERLAY}
 
 Close Overlay
+    [Documentation]    CLoses the Overlay with the closebutton
     Click Element    ${CLOSE_BUTTON}
     Wait Until Element Is Not Visible    ${OVERLAY}
 
 Get Element Position
+    [Documentation]    Searches for the position of a specific element ${locator}
     [Arguments]    ${locator}
     ${position}=    Execute JavaScript    return [arguments[0].getBoundingClientRect().left, arguments[0].getBoundingClientRect().top];    ${locator}
     RETURN    ${position}
 
 Get Image Title
+    [Documentation]    get the image title from image name and returns the image title
     [Arguments]    ${locator}
     ${src_attribute}=    Get Element Attribute    ${locator}    src
     ${image_title}=    Get Title From Src    ${src_attribute}
     RETURN   ${image_title}
 
 Get Title From Src
+    [Documentation]    Extracts the imagetitle from the src tag
     [Arguments]    ${src}
     # Extract the title between the last '/' and the first '-' in the file name
     ${image_name}=    Evaluate    ${src}.split("/")[-1].split("-")[0].upper()
@@ -45,7 +50,6 @@ Verify Overlay Content
 Test Mobile Overlay
     [Arguments]    ${width}    ${height}
     [Documentation]    Opens the overlay and verifies its content on a mobile screen of the given size.
-    Open Browser    ${URL}    Chrome
     Set Window Size    ${width}    ${height}
     Open Product Overlay
     Verify Overlay Content
@@ -53,6 +57,7 @@ Test Mobile Overlay
 
 
 Run Tests In All Browsers
+    [Documentation]    Iterates thgrough all available browsers
     FOR    ${BROWSER}    IN    @{BROWSERS}
         Set Suite Variable    ${BROWSER}
         Run Keyword And Ignore Error    Open Browser For Test
@@ -67,18 +72,19 @@ Close All Browsers
     Close All Browsers
 
 Get Focused Element
-    [Documentation]  Gibt das aktuell fokussierte Element zurück.
+    [Documentation]  Returns current focused elements.
     ${element}=    Execute JavaScript    return document.activeElement;
     RETURN    ${element}
 
 Element Should Be Focused
     [Arguments]    ${element}
-    [Documentation]  Überprüft, ob das übergebene Element den Fokus hat.
+    [Documentation] 	Checks if ${element} is focused
     Run Keyword If    '${element}' == 'None'    Fail    Kein Element ist fokussiert!
     Log    Aktuelles fokussiertes Element: ${element}
 
 
 Verify Color Not Selected
+    [Documentation]    Verifies that the not choosen colors are not selected
     [Arguments]    ${color}
     ${color_element}=  Get WebElement  xpath=//input[@alt='${color}']
     ${class_attribute}=    Get Element Attribute    ${color_element}    class

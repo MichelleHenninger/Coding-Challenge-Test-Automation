@@ -16,11 +16,12 @@ TC_01 Click on article thumbnail
     FOR    ${product}    IN    @{PRODUCT_CARDS}
         Click Element    ${product}${THUMBNAIL}
         Wait Until Element Is Visible    ${OVERLAY}
+        Wait Until Element Contains    locator=css.product-details-tab  text=Product Details  timeout=5s    error=No Product details
         [Teardown]    Close Overlay
     END
 
 TC_02 Check if the overlay can be closed
-    [Documentation]    Overlay closes without issues
+    [Documentation]    Checkes if Overlay closes without issues
     FOR    ${product}    IN    @{PRODUCT_CARDS}
         Click Element    ${product}${THUMBNAIL}
         Wait Until Element Is Visible    ${OVERLAY}
@@ -30,6 +31,7 @@ TC_02 Check if the overlay can be closed
 
 TC_03 Verify article images in the overlay
     [Documentation]    All images load and are displayed correctly
+    ...    iterates throgh  the slideshow
     FOR    ${product}    IN    @{PRODUCT_CARDS}
         Open Overlay For Product    ${product}
         Wait Until Page Contains Element    ${SLIDESHOW}
