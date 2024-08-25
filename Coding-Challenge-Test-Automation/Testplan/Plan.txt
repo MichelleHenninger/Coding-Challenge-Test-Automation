@@ -1,0 +1,81 @@
+Testplan: 
+1. Accaptence Criteria:
+
+    There should be a thumbnail on the page which on click opens an overlay with the articles details. (more information below)
+
+    The whole website must look nice on all screen sizes. (responsive layout)<br>
+
+    The page must contain at least the following information:
+        * Pictures of the article
+     * Name of the article
+     * Available colors of the article
+    * Available sizes of the article
+    * Retail prices of the article
+
+    Additionally there should be a tab section with even more details about the article:
+     * Product details
+     * Product fit
+      * Material and care instructions
+      * Information on sustainability
+
+    The footer in the overlay should be sticky. (Article name and call to action)
+    Click on a different color changes the slideshow images as well as the availabilities of the sizes
+
+
+2. Test-Scope
+    Functionality of the overlay (thumbnail click behavior, content display, etc.).
+    Responsiveness and layout of the overlay on various devices (desktop, tablet, mobile).
+    Dynamic content changes in the overlay (color selection, size availability, etc.).
+    Tab navigation within the overlay.
+    Sticky footer functionality in the overlay.
+
+
+3. Test environment 
+    Browser; Firefox, Edge, Chrome
+    Device: Devices: Desktop (1920x1080), Tablet (768x1024), Mobile (375x667)
+    Operating System: Windows10
+
+4. Tests:
+    Functionality: 
+    Test Case ID	Description	                    Expected Result
+    TC_01	Click on article thumbnail	            Overlay opens with article details
+    TC_02	Check if the overlay can be closed	    Overlay closes without issues
+    TC_03	Verify article images in the overlay	All images load and are displayed correctly
+    TC_04	Check the display of article name	    Article name is displayed correctly
+    TC_05	Verify available colors	                All available colors are displayed
+    TC_06	Verify available sizes	                All available sizes are displayed
+    TC_07	Validate the display of retail prices	Prices are displayed correctly
+    TC_08	Test tab navigation	Tabs navigate       correctly and display relevant information
+    TC_09	Select a different color	            Slideshow images and size availability update accordingly
+    TC_10	Verify sticky footer behavior	        Footer remains sticky at the bottom of the overlay
+    TC_11	Check if overlay content changes 
+            when resizing the browser	            Content adjusts properly without breaking the layout  
+
+    Responsiveness:
+    TC_12	Verify overlay on desktop	            Overlay content is correctly displayed
+    TC_13	Verify overlay on tablet	            Overlay content is correctly displayed
+    TC_14	Verify overlay on mobile	            Overlay content is correctly displayed
+    TC_15	Test responsiveness on screen
+            rotation (tablet/mobile)	            Content adjusts appropriately on rotation
+
+
+    Browser:
+    TC_16	Test overlay in Chrome	                Overlay displays and functions correctly
+    TC_17	Test overlay in Firefox	                Overlay displays and functions correctly
+    TC_18	Test overlay in Edge	                Overlay displays and functions correctly
+
+
+5. Test data
+    Article Variety
+    Article Description visible
+    Data from Product_Modal 
+
+6.  Risks
+    Compatibility issues on less common devices/browsers
+
+7. Resukt reporting
+    Daily test report : 
+        Summary of test execution
+
+    Final Test Report ( Report before Release)
+        Detailled test report with test Cases and testexecution Result
